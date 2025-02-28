@@ -4,15 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.TimeInterpolator;
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.res.Resources;
-import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.View;
-import android.view.animation.AnimationSet;
-
-import com.google.android.material.animation.AnimatorSetCompat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,10 +17,11 @@ import java.util.List;
  * </pre>
  */
 public class AnimFactory {
-    private AnimatorSet animatorSet;
+    private final AnimatorSet animatorSet;
 
     /**
      * 构造函数
+     *
      * @param builder 构造器
      */
     public AnimFactory(Builder builder) {
@@ -70,9 +63,9 @@ public class AnimFactory {
         /**
          * 添加横向缩放动画
          *
-         * @param start 初始值
-         * @param end 结束值
-         * @param duration 持续周期
+         * @param start        初始值
+         * @param end          结束值
+         * @param duration     持续周期
          * @param interpolator 插值器
          * @return Builder
          */
@@ -85,9 +78,9 @@ public class AnimFactory {
         /**
          * 添加纵向缩放动画
          *
-         * @param start 初始值
-         * @param end 结束值
-         * @param duration 持续周期
+         * @param start        初始值
+         * @param end          结束值
+         * @param duration     持续周期
          * @param interpolator 插值器
          * @return Builder
          */
@@ -99,9 +92,9 @@ public class AnimFactory {
         /**
          * 添加横向位移动画
          *
-         * @param start 初始值
-         * @param end 结束值
-         * @param duration 持续周期
+         * @param start        初始值
+         * @param end          结束值
+         * @param duration     持续周期
          * @param interpolator 插值器
          * @return Builder
          */
@@ -113,9 +106,9 @@ public class AnimFactory {
         /**
          * 添加纵向位移动画
          *
-         * @param start 初始值
-         * @param end 结束值
-         * @param duration 持续周期
+         * @param start        初始值
+         * @param end          结束值
+         * @param duration     持续周期
          * @param interpolator 插值器
          * @return Builder
          */
@@ -127,9 +120,9 @@ public class AnimFactory {
         /**
          * 添加透明度动画
          *
-         * @param start 初始值-[0f, 1f]
-         * @param end 结束值-[0f, 1f]
-         * @param duration 持续周期
+         * @param start        初始值-[0f, 1f]
+         * @param end          结束值-[0f, 1f]
+         * @param duration     持续周期
          * @param interpolator 插值器
          * @return Builder
          */
@@ -141,9 +134,9 @@ public class AnimFactory {
         /**
          * 添加旋转动画
          *
-         * @param start 初始值-正值表示顺时针,负值表示逆时针
-         * @param end 结束值-正值表示顺时针,负值表示逆时针
-         * @param duration 持续周期
+         * @param start        初始值-正值表示顺时针,负值表示逆时针
+         * @param end          结束值-正值表示顺时针,负值表示逆时针
+         * @param duration     持续周期
          * @param interpolator 插值器
          * @return Builder
          */
@@ -155,9 +148,9 @@ public class AnimFactory {
         /**
          * 添加X轴翻转动画
          *
-         * @param start 初始值-正值表示顺时针,负值表示逆时针
-         * @param end 结束值-正值表示顺时针,负值表示逆时针
-         * @param duration 持续周期
+         * @param start        初始值-正值表示顺时针,负值表示逆时针
+         * @param end          结束值-正值表示顺时针,负值表示逆时针
+         * @param duration     持续周期
          * @param interpolator 插值器
          * @return Builder
          */
@@ -169,9 +162,9 @@ public class AnimFactory {
         /**
          * 添加Y轴翻转动画
          *
-         * @param start 初始值-正值表示顺时针,负值表示逆时针
-         * @param end 结束值-正值表示顺时针,负值表示逆时针
-         * @param duration 持续周期
+         * @param start        初始值-正值表示顺时针,负值表示逆时针
+         * @param end          结束值-正值表示顺时针,负值表示逆时针
+         * @param duration     持续周期
          * @param interpolator 插值器
          * @return Builder
          */
