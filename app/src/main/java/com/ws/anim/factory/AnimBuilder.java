@@ -16,7 +16,7 @@ import java.util.List;
  *     desc   :
  * </pre>
  */
-public class AnimFactory {
+public class AnimBuilder {
     private final AnimatorSet animatorSet;
 
     /**
@@ -24,7 +24,7 @@ public class AnimFactory {
      *
      * @param builder 构造器
      */
-    public AnimFactory(Builder builder) {
+    public AnimBuilder(Builder builder) {
         this.animatorSet = builder.animatorSet;
     }
 
@@ -69,7 +69,7 @@ public class AnimFactory {
          * @param interpolator 插值器
          * @return Builder
          */
-        public AnimFactory.Builder addScaleX(float start, float end, long duration, TimeInterpolator interpolator) {
+        public AnimBuilder.Builder addScaleX(float start, float end, long duration, TimeInterpolator interpolator) {
             animatorList.add(createAnimator("scaleX", start, end, duration, interpolator));
             return this;
         }
@@ -84,7 +84,7 @@ public class AnimFactory {
          * @param interpolator 插值器
          * @return Builder
          */
-        public AnimFactory.Builder addScaleY(float start, float end, long duration, TimeInterpolator interpolator) {
+        public AnimBuilder.Builder addScaleY(float start, float end, long duration, TimeInterpolator interpolator) {
             animatorList.add(createAnimator("scaleY", start, end, duration, interpolator));
             return this;
         }
@@ -98,7 +98,7 @@ public class AnimFactory {
          * @param interpolator 插值器
          * @return Builder
          */
-        public AnimFactory.Builder addTransX(float start, float end, long duration, TimeInterpolator interpolator) {
+        public AnimBuilder.Builder addTransX(float start, float end, long duration, TimeInterpolator interpolator) {
             animatorList.add(createAnimator("translationX", start, end, duration, interpolator));
             return this;
         }
@@ -112,7 +112,7 @@ public class AnimFactory {
          * @param interpolator 插值器
          * @return Builder
          */
-        public AnimFactory.Builder addTransY(float start, float end, long duration, TimeInterpolator interpolator) {
+        public AnimBuilder.Builder addTransY(float start, float end, long duration, TimeInterpolator interpolator) {
             animatorList.add(createAnimator("translationY", start, end, duration, interpolator));
             return this;
         }
@@ -126,7 +126,7 @@ public class AnimFactory {
          * @param interpolator 插值器
          * @return Builder
          */
-        public AnimFactory.Builder addAlpha(float start, float end, long duration, TimeInterpolator interpolator) {
+        public AnimBuilder.Builder addAlpha(float start, float end, long duration, TimeInterpolator interpolator) {
             animatorList.add(createAnimator("alpha", start, end, duration, interpolator));
             return this;
         }
@@ -140,7 +140,7 @@ public class AnimFactory {
          * @param interpolator 插值器
          * @return Builder
          */
-        public AnimFactory.Builder addRotation(float start, float end, long duration, TimeInterpolator interpolator) {
+        public AnimBuilder.Builder addRotation(float start, float end, long duration, TimeInterpolator interpolator) {
             animatorList.add(createAnimator("rotation", start, end, duration, interpolator));
             return this;
         }
@@ -154,7 +154,7 @@ public class AnimFactory {
          * @param interpolator 插值器
          * @return Builder
          */
-        public AnimFactory.Builder addRotationX(float start, float end, long duration, TimeInterpolator interpolator) {
+        public AnimBuilder.Builder addRotationX(float start, float end, long duration, TimeInterpolator interpolator) {
             animatorList.add(createAnimator("rotationX", start, end, duration, interpolator));
             return this;
         }
@@ -168,7 +168,7 @@ public class AnimFactory {
          * @param interpolator 插值器
          * @return Builder
          */
-        public AnimFactory.Builder addRotationY(float start, float end, long duration, TimeInterpolator interpolator) {
+        public AnimBuilder.Builder addRotationY(float start, float end, long duration, TimeInterpolator interpolator) {
             animatorList.add(createAnimator("rotationY", start, end, duration, interpolator));
             return this;
         }
@@ -180,7 +180,7 @@ public class AnimFactory {
          * @param duration 持续时间
          * @return Builder
          */
-        public AnimFactory.Builder setDuration(long duration) {
+        public AnimBuilder.Builder setDuration(long duration) {
             if (duration != 0f) {
                 animatorSet.setDuration(duration);
             }
@@ -194,7 +194,7 @@ public class AnimFactory {
          * @param interpolator 插值器
          * @return Builder
          */
-        public AnimFactory.Builder setDuration(TimeInterpolator interpolator) {
+        public AnimBuilder.Builder setInterpolator(TimeInterpolator interpolator) {
             if (interpolator != null) {
                 animatorSet.setInterpolator(interpolator);
             }
@@ -207,7 +207,7 @@ public class AnimFactory {
          * @param delay 延时时间
          * @return Builder
          */
-        public AnimFactory.Builder setDelay(long delay) {
+        public AnimBuilder.Builder setDelay(long delay) {
             animatorSet.setStartDelay(delay);
             return this;
         }
@@ -217,9 +217,9 @@ public class AnimFactory {
          *
          * @return AnimFactory
          */
-        public AnimFactory build() {
+        public AnimBuilder build() {
             animatorSet.playTogether(animatorList);
-            return new AnimFactory(this);
+            return new AnimBuilder(this);
         }
     }
 }
