@@ -5,14 +5,18 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 
 import androidx.annotation.ColorInt;
+import androidx.annotation.Nullable;
 import androidx.core.graphics.ColorUtils;
+import androidx.palette.graphics.Palette;
 
 import com.ws.anim.R;
+import com.ws.anim.utils.Colors;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -52,7 +56,14 @@ public class ColorCalculateView extends FrameLayout {
                         }
                     });
 
-                    Bitmap scaledBitmapBottom = Bitmap.createScaledBitmap(Bitmap.createBitmap(bitmap, width, bitmap.getHeight() - height, width, height), 1, 1, false);    //Resize the bitmap to 1x1
+                    Bitmap scaledBitmapBottom = Bitmap.createScaledBitmap(Bitmap.createBitmap(bitmap, width, bitmap.getHeight() - height, width, height), 5, 5, false);    //Resize the bitmap to 1x1
+                    int color = Colors.getFitColor(scaledBitmapBottom.getPixel(0, 0));
+                    new Handler(Looper.getMainLooper()).post(new Runnable() {
+                        @Override
+                        public void run() {
+                            findViewById(R.id.view_color_show).setBackgroundColor(color);
+                        }
+                    });
                 }
             }
         });
