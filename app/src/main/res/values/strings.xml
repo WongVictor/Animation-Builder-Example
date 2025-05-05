@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Anim</string>
+    <string name="basic_pager_title">Page : %d</string>
+    <string name="basic_recycler_title">recycler : %d</string>
 </resources>

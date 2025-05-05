@@ -16,7 +16,7 @@ import androidx.core.graphics.ColorUtils;
 import androidx.palette.graphics.Palette;
 
 import com.ws.anim.R;
-import com.ws.anim.utils.Colors;
+import com.ws.anim.utils.ColorUtil;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -57,7 +57,7 @@ public class ColorCalculateView extends FrameLayout {
                     });
 
                     Bitmap scaledBitmapBottom = Bitmap.createScaledBitmap(Bitmap.createBitmap(bitmap, width, bitmap.getHeight() - height, width, height), 5, 5, false);    //Resize the bitmap to 1x1
-                    int color = Colors.getFitColor(scaledBitmapBottom.getPixel(0, 0));
+                    int color = ColorUtil.getFitColor(scaledBitmapBottom.getPixel(0, 0));
                     new Handler(Looper.getMainLooper()).post(new Runnable() {
                         @Override
                         public void run() {

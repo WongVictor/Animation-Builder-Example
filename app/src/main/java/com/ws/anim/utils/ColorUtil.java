@@ -4,14 +4,16 @@ import android.graphics.Color;
 
 import androidx.core.graphics.ColorUtils;
 
+import java.util.Random;
+
 /**
  * <pre>
  *     author : WongVictor
  *     time   : 2025/03/09
- *     desc   :
+ *     desc   : 颜色处理工具类
  * </pre>
  */
-public class Colors {
+public class ColorUtil {
     private static final float MIN_ALPHA_CONTRAST = 3.0f; // 透明度最小对比度
 
     public static int getAntiColor(int sPixel) {
@@ -63,5 +65,24 @@ public class Colors {
         double colorLightness = ColorUtils.calculateLuminance(color);
         fitColor =  colorLightness >= 0.5f ? ColorUtils.setAlphaComponent(Color.BLACK, darkForeAlpha) : ColorUtils.setAlphaComponent(Color.WHITE, lightForeAlpha);
         return fitColor;
+    }
+
+    /**
+     * 生成随机颜色
+     *
+     * @return 颜色值
+     */
+    public static int getRandColor() {
+        Random random = new Random();
+        String R = Integer.toHexString(random.nextInt(256)).toUpperCase();
+        String G = Integer.toHexString(random.nextInt(256)).toUpperCase();
+        String B = Integer.toHexString(random.nextInt(256)).toUpperCase();
+
+        R = R.length() == 1 ? "0" + R : R;
+        G = G.length() == 1 ? "0" + G : G;
+        B = B.length() == 1 ? "0" + B : B;
+
+        String colorStr = "#" + R + G + B;
+        return Color.parseColor(colorStr);
     }
 }

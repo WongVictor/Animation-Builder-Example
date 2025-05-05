@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import com.ws.anim.R;
-import com.ws.anim.ui.AnimBarActivity;
+import com.ws.anim.ui.MotionEventActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,7 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
         Button button = findViewById(R.id.btn_main);
         button.setOnClickListener(v->{
-            startIt(AnimBarActivity.class);
+//            startIt(AnimBarActivity.class);
+            startIt(MotionEventActivity.class);
         });
 
     }
